@@ -1,5 +1,6 @@
 <?php
 require 'db.php';
+require 'header.php';
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -67,13 +68,11 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Simple Blog</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    
 </head>
 <body>
-    <header>
-        <h1>Simple Blog</h1>
-    </header>
+    
+
     
     <main>
         <div class="post-form">

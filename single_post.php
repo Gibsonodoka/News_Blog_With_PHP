@@ -1,5 +1,6 @@
 <?php
 require 'db.php';
+require 'header.php'; // Include your header here
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -16,16 +17,14 @@ if (isset($_GET['id'])) {
 <html>
 <head>
     <title><?php echo $post['title']; ?> - Simple Blog</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Simple Blog</h1>
-    </header>
-    
     <main>
         <div class="post">
             <h2><?php echo $post['title']; ?></h2>
+            <?php if (!empty($post['image'])): ?>
+                <img src="uploads/<?php echo $post['image']; ?>" alt="Post Image">
+            <?php endif; ?>
             <p><?php echo $post['content']; ?></p>
             <p><?php echo $post['created_at']; ?></p>
         </div>

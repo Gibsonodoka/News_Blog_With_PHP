@@ -1,2 +1,1 @@
-# News_Blog_With_PHP
-A simple Blog created with raw PHP
+## I'll Need you to add border around the image as assignments

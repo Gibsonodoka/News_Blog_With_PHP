@@ -18,6 +18,56 @@ main {
     padding: 20px;
 }
 
+/* Header styling */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navigation styling */
+/* Navigation styling */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Center-align the navigation items horizontally */
+}
+
+nav ul li {
+    display: inline-block; /* Display items inline-block to center-align them */
+    margin-right: 20px; /* Adjust the spacing if needed */
+}
+
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold; /* Make navigation links bold */
+}
+
+/* User actions (Login and Register buttons) */
+.user-actions {
+    display: flex;
+    align-items: center;
+}
+
+.user-actions button {
+    background-color: #444; /* Darker background color for buttons */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 10px; /* Adjust the spacing between buttons */
+    cursor: pointer;
+}
+
+.user-actions button:hover {
+    background-color: #555; /* Darker background on hover */
+}
+
 /* Header and footer styling */
 header, footer {
     background-color: #000; /* Black header and footer background */
@@ -25,6 +75,14 @@ header, footer {
     text-align: center;
     padding: 10px 0;
 }
+
+/*styles for the logo */
+header .logo img {
+    max-width: 200px; /* Adjust the maximum width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: 50px;
+}
+
 
 /* Form styling */
 .post-form {
@@ -66,7 +124,6 @@ footer {
 }
 
 /* Style the "Read More" button */
-
 .post .post-info {
     display: flex;
     justify-content: space-between;
@@ -92,5 +149,3 @@ footer {
 .post button:hover {
     background-color: #333; /* Darker background on hover */
 }
-
-
