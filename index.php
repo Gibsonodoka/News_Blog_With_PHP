@@ -91,7 +91,6 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <button type="submit">Create Post</button>
             </form>
         </div>
-        
         <div class="row">
             <?php foreach ($posts as $post): ?>
                 <div class="post">
@@ -100,12 +99,21 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                         <img src="uploads/<?php echo $post['image']; ?>" alt="Post Image">
                     <?php endif; ?>
                     <p><?php echo implode(' ', array_slice(explode(' ', $post['content']), 0, 20)); ?>...</p> <!-- Display first 20 words -->
-                    <p><?php echo $post['created_at']; ?></p>
-                    <a href="single_post.php?id=<?php echo $post['id']; ?>">Read More</a>
+
+                    <!-- Place the date and time to the right -->
+                    <div class="post-info">
+                        <p><strong><?php echo date('M j, Y | H:i', strtotime($post['created_at'])); ?></strong></p> <!-- Format the date -->
+                        <form action="single_post.php" method="get">
+                            <input type="hidden" name="id" value="<?php echo $post['id']; ?>">
+                            <button type="submit">Read More</button>
+                        </form>
+                    </div>
                 </div>
             <?php endforeach; ?>
         </div>
 
+
+       
 
     </main>
     
