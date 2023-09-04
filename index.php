@@ -99,22 +99,23 @@ $recentPosts = $recentStatement->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="row">
             <?php foreach ($posts as $post): ?>
-                <div class="post">
-                    <h2><?php echo $post['title']; ?></h2>
-                    <?php if (!empty($post['image'])): ?>
-                        <img src="uploads/<?php echo $post['image']; ?>" alt="Post Image">
-                    <?php endif; ?>
-                    <p><?php echo implode(' ', array_slice(explode(' ', $post['content']), 0, 20)); ?>...</p>
-                    <div class="post-info">
-                        <p><strong><?php echo date('M j, Y | H:i', strtotime($post['created_at'])); ?></strong></p>
-                        <form action="single_post.php" method="get">
-                            <input type="hidden" name="id" value="<?php echo $post['id']; ?>">
-                            <button type="submit">Read More</button>
-                        </form>
+                    <div class="post">
+                        <h2><a href="single_post.php?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a></h2>
+                        <?php if (!empty($post['image'])): ?>
+                            <img src="uploads/<?php echo $post['image']; ?>" alt="Post Image">
+                        <?php endif; ?>
+                        <p><?php echo implode(' ', array_slice(explode(' ', $post['content']), 0, 20)); ?>...</p>
+                        <div class="post-info">
+                            <p><strong><?php echo date('M j, Y | H:i', strtotime($post['created_at'])); ?></strong></p>
+                            <form action="single_post.php" method="get">
+                                <input type="hidden" name="id" value="<?php echo $post['id']; ?>">
+                                <button type="submit">Read More</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
             <?php endforeach; ?>
         </div>
+
     </main>
 
     <!-- Sidebar -->

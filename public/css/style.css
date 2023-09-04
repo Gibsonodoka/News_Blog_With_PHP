@@ -139,6 +139,11 @@ footer {
     bottom: 0; /* Stick to the bottom */
 }
 
+.post h2 a {
+    text-decoration: none; /* Remove underline from the link */
+    color: #000; /* Set the color of the link (you can change this as needed) */
+}
+
 /* Style images in posts */
 .post img {
     max-width: 100%; /* Ensure images don't exceed their container */
