@@ -12,10 +12,31 @@ body {
 }
 
 /* Center the content */
-main {
-    max-width: 900px;
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
     margin: 0 auto;
+}
+
+/* Main content styling */
+main {
+    flex-basis: 70%;
     padding: 20px;
+}
+
+/* Sidebar styling */
+aside {
+    flex-basis: 30%;
+    background-color: #f4f4f4; /* Light gray background for the sidebar */
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+aside h2 {
+    background-color: #000;
+    color: #f4f4f4;
+    padding: 8px 10px;
+    margin-bottom: 15px
 }
 
 /* Header styling */
@@ -29,7 +50,6 @@ header {
 }
 
 /* Navigation styling */
-/* Navigation styling */
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -41,7 +61,6 @@ nav ul li {
     display: inline-block; /* Display items inline-block to center-align them */
     margin-right: 20px; /* Adjust the spacing if needed */
 }
-
 
 nav ul li a {
     text-decoration: none;
@@ -76,13 +95,12 @@ header, footer {
     padding: 10px 0;
 }
 
-/*styles for the logo */
+/* Logo styling */
 header .logo img {
     max-width: 200px; /* Adjust the maximum width as needed */
     height: auto; /* Maintain aspect ratio */
-    margin-left: 50px;
+    margin-left: 20px; /* Increase margin for better spacing */
 }
-
 
 /* Form styling */
 .post-form {
@@ -110,11 +128,15 @@ header .logo img {
 }
 
 /* Footer styling */
+/* Footer styling */
 footer {
     text-align: center;
     padding: 10px 0;
     background-color: #000; /* Black footer background */
     color: #fff; /* White text color */
+    width: 100%; /* Full width */
+    position: fixed; /* Fixed position at the bottom */
+    bottom: 0; /* Stick to the bottom */
 }
 
 /* Style images in posts */
@@ -149,3 +171,45 @@ footer {
 .post button:hover {
     background-color: #333; /* Darker background on hover */
 }
+
+/* Recent posts in the sidebar */
+.recent-post {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.recent-post img {
+    max-width: 150px; /* Adjust thumbnail image size */
+    height: auto;
+    margin-right: 10px;
+}
+
+.recent-post p {
+    margin: 0;
+}
+
+/* Add this CSS code to your stylesheet */
+.recent-post button {
+    background-color: #000; /* Black background color */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 50px; /* Adjust the top margin as needed */
+    display: inline-block; /* Ensure the link doesn't take full width */
+    text-decoration: none; /* Remove underline from any links within the button */
+}
+
+.recent-post button:hover {
+    background-color: #333; /* Darker black background color on hover */
+}
+
+/* Style the link within the button */
+.recent-post button a {
+    text-decoration: none; /* Remove underline from the link */
+    color: #fff; /* White text color for the link */
+}
+

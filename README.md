@@ -1,1 +1,2 @@
-## I'll Need you to add border around the image as assignments
+## Added Recent Post 
+## Added Sidebar

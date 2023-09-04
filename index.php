@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $statement->bindValue(':image', $image);
 
             if ($statement->execute()) {
-                header("Location: index.php"); // Redirect back to main page after adding post
+                header("Location: index.php"); // Redirect back to the main page after adding a post
             } else {
                 echo "Error adding post.";
             }
@@ -63,20 +63,27 @@ $query = "SELECT * FROM posts ORDER BY created_at DESC";
 $statement = $conn->prepare($query);
 $statement->execute();
 $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+// Fetch recent posts for the sidebar
+$recentQuery = "SELECT * FROM posts ORDER BY created_at DESC LIMIT 5"; // Change the limit as needed
+$recentStatement = $conn->prepare($recentQuery);
+$recentStatement->execute();
+$recentPosts = $recentStatement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
 </head>
 <body>
-    
 
-    
+<div class="container">
+    <!-- Main content -->
     <main>
         <div class="post-form">
             <h2>Create a New Post</h2>
+            <!-- Your form for creating new posts here-->
             <form action="index.php" method="post" enctype="multipart/form-data">
                 <label for="title">Title:</label>
                 <input type="text" name="title" required>
@@ -97,11 +104,9 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                     <?php if (!empty($post['image'])): ?>
                         <img src="uploads/<?php echo $post['image']; ?>" alt="Post Image">
                     <?php endif; ?>
-                    <p><?php echo implode(' ', array_slice(explode(' ', $post['content']), 0, 20)); ?>...</p> <!-- Display first 20 words -->
-
-                    <!-- Place the date and time to the right -->
+                    <p><?php echo implode(' ', array_slice(explode(' ', $post['content']), 0, 20)); ?>...</p>
                     <div class="post-info">
-                        <p><strong><?php echo date('M j, Y | H:i', strtotime($post['created_at'])); ?></strong></p> <!-- Format the date -->
+                        <p><strong><?php echo date('M j, Y | H:i', strtotime($post['created_at'])); ?></strong></p>
                         <form action="single_post.php" method="get">
                             <input type="hidden" name="id" value="<?php echo $post['id']; ?>">
                             <button type="submit">Read More</button>
@@ -110,14 +115,23 @@ $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             <?php endforeach; ?>
         </div>
-
-
-       
-
     </main>
-    
-    <footer>
-        <p>&copy; <?php echo date("Y"); ?> Simple Blog</p>
-    </footer>
+
+    <!-- Sidebar -->
+    <aside>
+        <h2>Recent Posts</h2>
+        <?php foreach ($recentPosts as $recentPost): ?>
+            <div class="recent-post">
+                <img src="uploads/<?php echo $recentPost['image']; ?>" alt="Thumbnail">
+                <h4><?php echo substr($recentPost['title'], 0, 30); // Change 30 to your desired title length ?>...</h4>
+                <button><a href="single_post.php?id=<?php echo $recentPost['id']; ?>">view</a></button>
+            </div>
+        <?php endforeach; ?>
+    </aside>
+
+
+</div>
+
+<?php require 'footer.php'; ?>
 </body>
 </html>
