@@ -7,7 +7,51 @@ body {
     margin-left: 240px; /* Match the width of the left-sidebar */
     background-color: #f0f0f0; /* Change the content background color */
     padding: 20px; /* Add padding to content */
+    display: flex;
+    flex-wrap: wrap; /* Allow columns to wrap to the next row if needed */
+    gap: 20px; /* Add spacing between columns */
 }
+
+.column {
+    flex: 1; /* Distribute available space equally among columns */
+    background-color: #fff; /* Column background color */
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to columns */
+    color: #f0f0f0;
+    margin: 10px;
+    border-radius: 2px;
+}
+
+.column h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/*.column {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+*/
+
+.total-post {
+    background-color: rgba(0, 0, 255, 0.7); /* Blue */
+}
+
+.pending-post {
+    background-color: rgba(255, 165, 0, 0.7); /* Orange */
+}
+
+.draft {
+    background-color: rgba(128, 0, 128, 0.7); /* Purple */
+}
+
+.scheduled-post {
+    background-color: rgba(0, 128, 0, 0.7); /* Green */
+}
+
+
 
 
 /* Add this code to your CSS stylesheet */

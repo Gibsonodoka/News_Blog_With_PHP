@@ -15,9 +15,9 @@
         </div>
 
         <ul>
-            <li><a href="#">Dashboard</a></li>
+            <li><a href="dashboard.php">Dashboard</a></li>
             <li><a href="#">Posts</a></li>
-            <li><a href="#">Create Post</a></li>
+            <li><a href="new_post.php">Create Post</a></li>
             <li><a href="#">User Management</a></li>
             <li><a href="#">Settings</a></li>
             <li><a href="#">Categories</a></li>
