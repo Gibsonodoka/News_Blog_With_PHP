@@ -29,9 +29,6 @@ if (isset($_GET['id'])) {
             <p><?php echo $post['created_at']; ?></p>
         </div>
     </main>
-    
-    <footer>
-        <p>&copy; <?php echo date("Y"); ?> Simple Blog</p>
-    </footer>
+    <?php require 'footer.php';?>
 </body>
 </html>

@@ -22,7 +22,7 @@
             </ul>
         </nav>
         <div class="user-actions">
-            <button>Login</button>
+            <button><a href="auth/dashboard.php">Login</a></button>
             <button>Register</button>
         </div>
     </header>

@@ -81,22 +81,6 @@ $recentPosts = $recentStatement->fetchAll(PDO::FETCH_ASSOC);
 <div class="container">
     <!-- Main content -->
     <main>
-        <div class="post-form">
-            <h2>Create a New Post</h2>
-            <!-- Your form for creating new posts here-->
-            <form action="index.php" method="post" enctype="multipart/form-data">
-                <label for="title">Title:</label>
-                <input type="text" name="title" required>
-                
-                <label for="content">Content:</label>
-                <textarea name="content" rows="4" required></textarea>
-                
-                <label for="image">Image:</label>
-                <input type="file" name="image">
-                
-                <button type="submit">Create Post</button>
-            </form>
-        </div>
         <div class="row">
             <?php foreach ($posts as $post): ?>
                     <div class="post">

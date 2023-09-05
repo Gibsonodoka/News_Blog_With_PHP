@@ -1,0 +1,27 @@
+<!-- dash_nav.php -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/admin-style.css">
+</head>
+<body>
+    <div class="left-sidebar">
+        <!-- Add your logo here -->
+        <div class="logo">
+            <img src="/Blog/public/images/job.png" alt="Your Logo">
+            <hr> <!-- Horizontal line -->
+        </div>
+
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Posts</a></li>
+            <li><a href="#">Create Post</a></li>
+            <li><a href="#">User Management</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Categories</a></li>
+        </ul>
+    </div>
+</body>
+</html>

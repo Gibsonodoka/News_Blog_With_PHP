@@ -1,0 +1,144 @@
+body {
+    background-color: #f2ecec;
+}
+/* Adjust content area styles */
+
+.content {
+    margin-left: 240px; /* Match the width of the left-sidebar */
+    background-color: #f0f0f0; /* Change the content background color */
+    padding: 20px; /* Add padding to content */
+}
+
+
+/* Add this code to your CSS stylesheet */
+header {
+    background-color: #fff;
+    color: #333;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0; /* Remove margin on all sides */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.logo img {
+    max-width: 150px;
+    height: auto;
+    margin-left: 20px;
+}
+
+.admin-nav {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.view-site-button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.admin-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.profile-dropdown-button {
+    background-color: transparent;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #555;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .profile-dropdown-button {
+    background-color: #555;
+}
+/* admin-style.css */
+
+.left-sidebar {
+    width: 200px; /* Adjust the width as needed */
+    background-color: #333; /* Background color of the sidebar */
+    color: #fff; /* Text color */
+    padding: 20px;
+    height: 100vh; /* Set the height to 100% of the viewport height */
+    position: fixed; /* Fixed position to stay on the screen */
+    top: 0;
+    left: 0;
+    overflow-y: auto; /* Add a scrollbar if content overflows */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    justify-content: flex-start; /* Align items at the top */
+}
+
+.left-sidebar .logo img {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 20px; /* Add space below the logo */
+    margin-left: 3px;
+}
+
+.left-sidebar hr {
+    width: 100%;
+    border: 1px solid #555; /* Horizontal line style */
+    margin-bottom: 20px; /* Add space below the horizontal line */
+}
+
+.left-sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.left-sidebar li {
+    margin-bottom: 10px;
+}
+
+.left-sidebar a {
+    color: #fff;
+    text-decoration: none;
+    display: block; /* Display links as block elements for full width */
+    padding: 10px; /* Add some padding to the links */
+}
+
+.left-sidebar a:hover {
+    background-color: #444; /* Change background color on hover */
+    text-decoration: none;
+}

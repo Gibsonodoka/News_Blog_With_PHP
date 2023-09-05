@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $statement->bindValue(':image', $image);
 
             if ($statement->execute()) {
-                header("Location: index.php"); // Redirect back to main page after adding post
+                header("Location: auth/dashboard.php"); // Redirect back to main page after adding post
             } else {
                 echo "Error adding post.";
             }
