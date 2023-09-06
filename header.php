@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Simple Blog</title>
+    <title>Welcome | Sinple PHP Blog</title>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
 </head>
 <body>
