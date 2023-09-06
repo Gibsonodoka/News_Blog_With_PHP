@@ -2,7 +2,7 @@
 require 'db.php';
 require 'header.php';
 
-// Handle form submission
+// Handle form submission of post
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'];
     $content = $_POST['content'];
