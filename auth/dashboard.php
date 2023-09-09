@@ -29,7 +29,7 @@ $adminName = $statement->fetchColumn();
 require '../admin_header.php'; // Adjust the path as needed
 require '../dash_nav.php';
 ?>
-
+<!--Start of HTML Document-->
 <!DOCTYPE html>
 <html>
 <head>
