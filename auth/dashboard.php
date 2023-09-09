@@ -36,6 +36,7 @@ require '../dash_nav.php';
     <link rel="stylesheet" href="../public/css/admin-style.css">
 </head>
 <body>
+    <!--Start of column-->
     <div class="content">
 
         <div class="column total-post">
