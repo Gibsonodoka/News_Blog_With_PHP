@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     header("Location: login.php"); // Redirect to the login page
     exit();
 }
-
+//check ends here
 // Fetch the admin's name from the database
 require '../db.php'; // Include your database connection file
 $user_id = $_SESSION['user_id'];

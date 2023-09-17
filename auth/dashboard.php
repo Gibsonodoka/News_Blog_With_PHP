@@ -29,13 +29,14 @@ $adminName = $statement->fetchColumn();
 require '../admin_header.php'; // Adjust the path as needed
 require '../dash_nav.php';
 ?>
-
+<!--Start of HTML Document-->
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="../public/css/admin-style.css">
 </head>
 <body>
+    <!--Start of column-->
     <div class="content">
 
         <div class="column total-post">

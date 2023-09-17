@@ -1,7 +1,7 @@
 <?php
 // Start the session
 session_start();
-
+// logout session 
 // Unset all of the session variables
 $_SESSION = array();
 
