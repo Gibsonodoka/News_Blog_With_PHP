@@ -83,20 +83,39 @@ $recentPosts = $recentStatement->fetchAll(PDO::FETCH_ASSOC);
     <main>
         <div class="row">
             <?php foreach ($posts as $post): ?>
-                    <div class="post">
-                        <h2><a href="single_post.php?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a></h2>
-                        <?php if (!empty($post['image'])): ?>
-                            <img src="uploads/<?php echo $post['image']; ?>" alt="Post Image">
-                        <?php endif; ?>
-                        <p><?php echo implode(' ', array_slice(explode(' ', $post['content']), 0, 20)); ?>...</p>
-                        <div class="post-info">
-                            <p><strong><?php echo date('M j, Y | H:i', strtotime($post['created_at'])); ?></strong></p>
-                            <form action="single_post.php" method="get">
-                                <input type="hidden" name="id" value="<?php echo $post['id']; ?>">
-                                <button type="submit">Read More</button>
-                            </form>
-                        </div>
-                    </div>
+                <div class="post">
+    <h3><a href="single_post.php?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a></h3>
+    <?php if (!empty($post['image'])): ?>
+        <img src="uploads/<?php echo $post['image']; ?>" alt="Post Image">
+    <?php endif; ?>
+    <p><?php echo implode(' ', array_slice(explode(' ', $post['content']), 0, 20)); ?>...</p>
+    
+    <!-- Fetch and display the category name -->
+    <?php
+    $categoryQuery = "SELECT category_name FROM categories WHERE id = :category_id";
+    $categoryStatement = $conn->prepare($categoryQuery);
+    $categoryStatement->bindValue(':category_id', $post['category_id']);
+    
+    if ($categoryStatement->execute()) {
+        $category = $categoryStatement->fetch(PDO::FETCH_ASSOC);
+        if ($category) {
+            echo "<p><strong>Category: {$category['category_name']}</strong></p>";
+        } else {
+            echo "<p><strong>Category: Not Found</strong></p>";
+        }
+    } else {
+        echo "<p><strong>Category: Error Fetching</strong></p>";
+    }
+    ?>
+    
+    <div class="post-info">
+        <p><strong><?php echo date('M j, Y | H:i', strtotime($post['created_at'])); ?></strong></p>
+        <form action="single_post.php" method="get">
+            <input type="hidden" name="id" value="<?php echo $post['id']; ?>">
+            <button type="submit">Read More</button>
+        </form>
+    </div>
+</div>
             <?php endforeach; ?>
         </div>
 

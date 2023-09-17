@@ -4,6 +4,7 @@ require 'db.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'];
     $content = $_POST['content'];
+    $category_id = $_POST['category']; // Assuming 'category' is the name of your select element
 
     // Handle image upload
     $targetDir = "uploads/";
@@ -11,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
-    // Check if image file is a actual image or fake image
+    // Check if image file is an actual image or a fake image
     $check = getimagesize($_FILES["image"]["tmp_name"]);
     if ($check !== false) {
         $uploadOk = 1;
@@ -43,14 +44,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
             $image = basename($_FILES["image"]["name"]);
-            $query = "INSERT INTO posts (title, content, image) VALUES (:title, :content, :image)";
+            
+            // Fetch the selected category name based on its ID
+            $query = "SELECT category_name FROM categories WHERE id = :category_id";
+            $categoryStatement = $conn->prepare($query);
+            $categoryStatement->bindParam(':category_id', $category_id);
+            $categoryStatement->execute();
+            $category = $categoryStatement->fetchColumn();
+
+            // Insert the post with the category name
+            $query = "INSERT INTO posts (title, content, image, category) VALUES (:title, :content, :image, :category)";
             $statement = $conn->prepare($query);
             $statement->bindValue(':title', $title);
             $statement->bindValue(':content', $content);
             $statement->bindValue(':image', $image);
+            $statement->bindValue(':category', $category);
 
             if ($statement->execute()) {
-                header("Location: auth/dashboard.php"); // Redirect back to main page after adding post
+                header("Location: auth/dashboard.php"); // Redirect back to the main page after adding the post
             } else {
                 echo "Error adding post.";
             }
