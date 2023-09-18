@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
         $uploadOk = 0;
     }
-
+// check if upload is oksy 
     if ($uploadOk == 0) {
         echo "Sorry, your file was not uploaded.";
     } else {
