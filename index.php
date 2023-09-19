@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "File is not an image.";
         $uploadOk = 0;
     }
-
+// check if file exist 
     if (file_exists($targetFile)) {
         echo "Sorry, file already exists.";
         $uploadOk = 0;
