@@ -241,3 +241,18 @@ header {
     text-decoration: underline;
 }
 
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-user-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 20px; /* Add margin to the right to push it to the right side */
+}
