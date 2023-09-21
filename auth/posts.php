@@ -1,9 +1,35 @@
 <!-- posts.php -->
 <?php
+require '../db.php'; 
+session_start();
+
+// Check if the user is logged in and has the admin role on the server-side
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
+    header("Location: login.php"); // Redirect to the login page
+    exit();
+}
+
+// Fetch the admin's name from the database
+require '../db.php'; // Include your database connection file
+$user_id = $_SESSION['user_id'];
+$query = "SELECT username FROM users WHERE id = :user_id"; // Use the correct column name
+$statement = $conn->prepare($query);
+$statement->bindParam(':user_id', $user_id);
+$statement->execute();
+$adminName = $statement->fetchColumn();
+
+// Fetch categories from the database
+$query = "SELECT * FROM categories"; // Replace 'categories' with your table name
+$categoriesStatement = $conn->prepare($query);
+$categoriesStatement->execute();
+$categories = $categoriesStatement->fetchAll();
+
+// Now include admin_header.php
 require '../admin_header.php'; // Adjust the path as needed
 require '../dash_nav.php';
-require '../db.php';
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
