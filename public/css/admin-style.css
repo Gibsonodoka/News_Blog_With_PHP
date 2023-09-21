@@ -186,3 +186,58 @@ header {
     background-color: #444; /* Change background color on hover */
     text-decoration: none;
 }
+
+/* Add this CSS to style the table */
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff; /* Table background color */
+    border: 1px solid #ccc; /* Table border */
+}
+
+.content table th {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #222; /* Header bottom border */
+}
+
+.content table th:first-child {
+    border-top-left-radius: 4px; /* Rounded top-left corner for the first header cell */
+}
+
+.content table th:last-child {
+    border-top-right-radius: 4px; /* Rounded top-right corner for the last header cell */
+}
+
+.content table td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc; /* Row bottom border */
+}
+
+.content table tbody tr:last-child td {
+    border-bottom: none; /* Remove bottom border for the last row */
+}
+
+/* Style the image in the table cell */
+.content table td img {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Style links in the last column */
+.content table td a {
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+/* Hover effect for links in the last column */
+.content table td a:hover {
+    text-decoration: underline;
+}
+

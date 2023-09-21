@@ -1,8 +1,20 @@
 <!-- posts.php -->
 <?php
-require '../admin_header.php';
+require '../admin_header.php'; // Adjust the path as needed
+require '../dash_nav.php';
 require '../db.php';
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post</title>
+    <link rel="stylesheet" href="../public/css/admin-style.css">
+</head>
+<body>
+    
+
 
 <div class="content">
     <h2>Posts</h2>
@@ -37,5 +49,6 @@ require '../db.php';
         </tbody>
     </table>
 </div>
-
+</body>
+</html>
 <?php require '../footer.php'; ?>

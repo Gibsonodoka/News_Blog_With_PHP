@@ -9,7 +9,6 @@
 <body>
 
 <header>
-<!-- Site logo -->
     <div class="logo">
         <img src="/Blog/public/images/job.png" alt="Your Logo">
     </div>

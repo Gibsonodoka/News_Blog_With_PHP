@@ -2,7 +2,7 @@
 require 'db.php';
 require 'header.php';
 
-// Handle form submission of post
+// Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'];
     $content = $_POST['content'];
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "File is not an image.";
         $uploadOk = 0;
     }
-// check if file exist 
+
     if (file_exists($targetFile)) {
         echo "Sorry, file already exists.";
         $uploadOk = 0;
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
         $uploadOk = 0;
     }
-// check if upload is oksy 
+
     if ($uploadOk == 0) {
         echo "Sorry, your file was not uploaded.";
     } else {
