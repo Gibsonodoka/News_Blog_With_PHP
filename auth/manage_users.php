@@ -64,8 +64,8 @@ require '../dash_nav.php';
                 echo "<td>{$user['status']}</td>";
                 echo "<td>{$user['created_at']}</td>";
                 echo "<td>
-                        <a href='edit_user.php?id={$user['id']}'>Edit User</a>|
-                        <a href='delete_user.php?id={$user['id']}'>Delete User</a>
+                        <a href='edit_user.php?id={$user['id']}' class='edit-user-button'>Edit User</a>|
+                        <a href='delete_user.php?id={$user['id']}' class='delete-user-button'>Delete User</a>
                       </td>";
                 echo "</tr>";
             }

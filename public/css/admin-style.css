@@ -247,11 +247,21 @@ header {
     align-items: center;
 }
 
-.add-user-button {
+.add-user-button, .edit-user-button, .delete-user-button {
     background-color: #007bff;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 20px; /* Add margin to the right to push it to the right side */
+}
+
+.edit-user-button, .delete-user-button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
     border-radius: 5px;
     text-decoration: none;
     margin-right: 20px; /* Add margin to the right to push it to the right side */
