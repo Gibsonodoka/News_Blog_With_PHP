@@ -63,7 +63,7 @@ require '../dash_nav.php';
 
             foreach ($posts as $post) {
                 echo "<tr>";
-                echo "<td><img src='uploads/{$post['image']}' alt='Thumbnail' width='100'></td>";
+                echo "<td><img src='../uploads/{$post['image']}' alt='Thumbnail' width='100' height='100'></td>";
                 echo "<td>{$post['title']}</td>";
                 echo "<td>";
                 echo "<a href='edit_post.php?id={$post['id']}'>Edit</a> | ";
