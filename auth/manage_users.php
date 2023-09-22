@@ -50,6 +50,11 @@ $totalPages = ceil($totalUsers / $usersPerPage);
 <head>
     <title>Manage Users</title>
     <link rel="stylesheet" href="../public/css/admin-style.css">
+    <!-- Include Bootstrap CSS and JS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div class="content">
@@ -80,8 +85,8 @@ $totalPages = ceil($totalUsers / $usersPerPage);
                     echo "<td>{$user['status']}</td>";
                     echo "<td>{$user['created_at']}</td>";
                     echo "<td>
-                            <a href='edit_user.php?id={$user['id']}' class='edit-user-button'>Edit User</a>|  
-                            <a href='delete_user.php?id={$user['id']}' class='delete-user-button'>Delete User</a>
+                            <a href='edit_user.php?id={$user['id']}' class='edit-user-button'>Edit User</a> |  
+                            <a href='#' class='delete-user-button' data-toggle='modal' data-target='#confirmDeleteModal' data-username='{$user['username']}'>Delete User</a>
                           </td>";
                     echo "</tr>";
                 }
@@ -97,9 +102,37 @@ $totalPages = ceil($totalUsers / $usersPerPage);
                 $activeClass = ($i == $page) ? 'active' : '';
                 echo "<a href='manage_users.php?page={$i}' class='pagination-link {$activeClass}'>{$i}</a>";
             }
-            //end 
             ?>
         </div>
+
+        <!-- Modal for confirming user deletion -->
+        <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Deletion</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete user: <span id="deleteUserName"></span>?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="btn btn-danger" id="confirmDeleteButton">Yes</a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- JavaScript to handle the Delete User link click -->
+        <script>
+            $(".delete-user-button").click(function () {
+                var userName = $(this).data("username");
+                $("#deleteUserName").text(userName);
+            });
+        </script>
     </div>
 </body>
 </html>
