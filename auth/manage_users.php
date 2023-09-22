@@ -97,6 +97,7 @@ $totalPages = ceil($totalUsers / $usersPerPage);
                 $activeClass = ($i == $page) ? 'active' : '';
                 echo "<a href='manage_users.php?page={$i}' class='pagination-link {$activeClass}'>{$i}</a>";
             }
+            //end 
             ?>
         </div>
     </div>
