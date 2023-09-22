@@ -81,12 +81,6 @@ $totalPages = ceil($totalPosts / $postsPerPage);
         </thead>
         <tbody>
             <?php
-            // Fetch and display the list of posts
-            $query = "SELECT * FROM posts";
-            $statement = $conn->prepare($query);
-            $statement->execute();
-            $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-
             foreach ($posts as $post) {
                 echo "<tr>";
                 echo "<td><img src='../uploads/{$post['image']}' alt='Thumbnail' width='100' height='100'></td>";
@@ -99,6 +93,16 @@ $totalPages = ceil($totalPosts / $postsPerPage);
             ?>
         </tbody>
     </table>
+
+    <!-- Pagination links -->
+    <div class="pagination">
+        <?php
+        for ($i = 1; $i <= $totalPages; $i++) {
+            $isActive = $i == $page ? 'active' : '';
+            echo "<a href='post.php?page=$i' class='pagination-link $isActive'>$i</a>";
+        }
+        ?>
+    </div>
 </div>
 <script src="../public/js/admin_script.js"></script>
 </body>
