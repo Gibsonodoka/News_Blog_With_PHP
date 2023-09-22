@@ -29,7 +29,7 @@ require '../admin_header.php'; // Adjust the path as needed
 require '../dash_nav.php';
 
 // Pagination variables
-$postsPerPage = 10; // Adjust as needed
+$postsPerPage = 5; // Adjust as needed
 $page = isset($_GET['page']) ? $_GET['page'] : 1; // Get the current page from the URL
 
 // Calculate the OFFSET for SQL query
