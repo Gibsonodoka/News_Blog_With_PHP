@@ -64,8 +64,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 <div class="content">
+    <div class="form-container">
     <h2>Add User</h2>
-    <form method="POST" action="add_user.php">
+    <form method="POST" action="add_user.php" class="add-user-form">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputEmail">Email</label>
@@ -100,6 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <button type="submit" class="btn btn-primary add-user-button">Add User</button>
     </form>
+</div>
 </div>
 
 </body>
