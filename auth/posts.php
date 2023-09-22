@@ -9,8 +9,6 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     exit();
 }
 
-
-
 // Fetch the admin's name from the database
 require '../db.php'; // Include your database connection file
 $user_id = $_SESSION['user_id'];
@@ -63,11 +61,11 @@ $totalPages = ceil($totalPosts / $postsPerPage);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post</title>
     <link rel="stylesheet" href="../public/css/admin-style.css">
+    <!-- Include the pagination CSS -->
+    
 </head>
 <body>
     
-
-
 <div class="content">
     <h2>Posts</h2>
 
@@ -97,9 +95,22 @@ $totalPages = ceil($totalPosts / $postsPerPage);
     <!-- Pagination links -->
     <div class="pagination">
         <?php
-        for ($i = 1; $i <= $totalPages; $i++) {
-            $isActive = $i == $page ? 'active' : '';
-            echo "<a href='post.php?page=$i' class='pagination-link $isActive'>$i</a>";
+        // Output pagination links
+        if ($totalPages > 1) {
+            if ($page > 1) {
+                echo "<a href='posts.php?page=1' class='pagination-link'>&laquo; First</a>";
+                echo "<a href='posts.php?page=" . ($page - 1) . "' class='pagination-link'>&lsaquo; Previous</a>";
+            }
+
+            for ($i = max(1, $page - 2); $i <= min($page + 2, $totalPages); $i++) {
+                $activeClass = ($i == $page) ? 'active' : '';
+                echo "<a href='posts.php?page={$i}' class='pagination-link {$activeClass}'>{$i}</a>";
+            }
+
+            if ($page < $totalPages) {
+                echo "<a href='posts.php?page=" . ($page + 1) . "' class='pagination-link'>Next &rsaquo;</a>";
+                echo "<a href='posts.php?page={$totalPages}' class='pagination-link'>Last &raquo;</a>";
+            }
         }
         ?>
     </div>

@@ -288,3 +288,21 @@ header {
     text-decoration: none; /* Remove underline on hover */
     color: #fff; /* Change text color to white on hover */
 }
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.pagination-link {
+    margin: 0 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    border: 1px solid #007bff;
+    border-radius: 3px;
+    color: #007bff;
+}
+.pagination-link.active {
+    background-color: #007bff;
+    color: #fff;
+}
