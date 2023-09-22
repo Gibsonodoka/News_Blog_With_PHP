@@ -63,19 +63,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 -->
 </head>
 <body>
-    <div class="content">
-        <h2>Add User</h2>
-        <form method="POST" action="add_user.php">
-            <!-- Add your form fields here, including username, email, password, role, and status -->
-            <!-- Example:
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" name="username" required>
+<div class="content">
+    <h2>Add User</h2>
+    <form method="POST" action="add_user.php">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail">Email</label>
+                <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email" required>
             </div>
-            -->
-            <!-- Add more form fields as needed -->
-            <button type="submit" class="add-user-button">Add User</button>
-        </form>
-    </div>
+            <div class="form-group col-md-6">
+                <label for="inputPassword">Password</label>
+                <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputUsername">Username</label>
+            <input type="text" class="form-control" id="inputUsername" name="username" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+            <label for="inputRole">Role</label>
+            <select id="inputRole" class="form-control" name="role" required>
+                <option selected>Choose...</option>
+                <!-- Add your role options here, e.g., Admin, User -->
+                <option>Admin</option>
+                <option>User</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="inputStatus">Status</label>
+            <select id="inputStatus" class="form-control" name="status" required>
+                <option selected>Choose...</option>
+                <!-- Add your status options here, e.g., Active, Inactive -->
+                <option>Active</option>
+                <option>Inactive</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary add-user-button">Add User</button>
+    </form>
+</div>
+
 </body>
 </html>
