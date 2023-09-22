@@ -229,13 +229,13 @@ header {
     margin: 0 auto;
 }
 
-/* Style links in the last column */
+/* Style links in the last column 
 .content table td a {
     color: #007bff;
     text-decoration: none;
     margin-right: 10px;
 }
-
+*/
 /* Hover effect for links in the last column */
 .content table td a:hover {
     text-decoration: underline;
@@ -247,7 +247,7 @@ header {
     align-items: center;
 }
 
-.add-user-button, .edit-user-button, .delete-user-button {
+.add-user-button {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -265,4 +265,10 @@ header {
     border-radius: 5px;
     text-decoration: none;
     margin-right: 20px; /* Add margin to the right to push it to the right side */
+}
+
+.edit-user-button:hover, .delete-user-button:hover {
+    background-color: #007bff; /* Change background color on hover */
+    text-decoration: none; /* Remove underline on hover */
+    color: #fff; /* Change text color to white on hover */
 }
