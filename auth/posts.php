@@ -9,6 +9,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     exit();
 }
 
+
+
 // Fetch the admin's name from the database
 require '../db.php'; // Include your database connection file
 $user_id = $_SESSION['user_id'];
@@ -27,6 +29,30 @@ $categories = $categoriesStatement->fetchAll();
 // Now include admin_header.php
 require '../admin_header.php'; // Adjust the path as needed
 require '../dash_nav.php';
+
+// Pagination variables
+$postsPerPage = 10; // Adjust as needed
+$page = isset($_GET['page']) ? $_GET['page'] : 1; // Get the current page from the URL
+
+// Calculate the OFFSET for SQL query
+$offset = ($page - 1) * $postsPerPage;
+
+// Fetch and display the list of posts with pagination
+$query = "SELECT * FROM posts LIMIT :limit OFFSET :offset";
+$statement = $conn->prepare($query);
+$statement->bindValue(':limit', $postsPerPage, PDO::PARAM_INT);
+$statement->bindValue(':offset', $offset, PDO::PARAM_INT);
+$statement->execute();
+$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+// Calculate the total number of posts
+$totalPostsQuery = "SELECT COUNT(*) FROM posts";
+$totalPostsStatement = $conn->query($totalPostsQuery);
+$totalPosts = $totalPostsStatement->fetchColumn();
+
+// Calculate the total number of pages
+$totalPages = ceil($totalPosts / $postsPerPage);
+
 ?>
 
 
