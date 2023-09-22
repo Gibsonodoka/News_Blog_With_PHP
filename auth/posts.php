@@ -66,10 +66,9 @@ require '../dash_nav.php';
                 echo "<td><img src='../uploads/{$post['image']}' alt='Thumbnail' width='100' height='100'></td>";
                 echo "<td>{$post['title']}</td>";
                 echo "<td>";
-                echo "<a href='javascript:void(0);' onclick='editPost({$post['id']})'>Edit</a>";
-                echo "<a href='delete_post.php?id={$post['id']}'>Delete</a>";
+                echo "<a href='javascript:void(0);' onclick='editPost({$post['id']})' class='edit-post-button'>Edit</a>";
+                echo "<a href='delete_post.php?id={$post['id']}' class='delete-post-button'>Delete</a>";
                 echo "</td>";
-                echo "</tr>";
             }
             ?>
         </tbody>
