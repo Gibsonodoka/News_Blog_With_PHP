@@ -330,8 +330,33 @@ header {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a box shadow */
 }
 
-.form-container h2 {
+.form-container h4 {
     margin-bottom: 20px; /* Add some spacing below the heading */
     text-align: left;
+    align-items: left;
+}
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; /* Add spacing below the header */
 }
 
+.form-header h4 {
+    margin: 0; /* Remove default margin */
+}
+.user-form-head {
+    margin: 0;
+}
+
+.btn-secondary {
+    background-color: #555;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+.btn-secondary:hover {
+    background-color: #333;
+}

@@ -65,7 +65,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <div class="content">
     <div class="form-container">
-    <h2>Add User</h2>
+    <div class="form-header">
+            <h4 class="user-form-head">Add User</h4>
+            <a href="manage_users.php" class="btn btn-secondary">Users</a>
+        </div>
     <form method="POST" action="add_user.php" class="add-user-form">
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -99,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <option>Inactive</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary add-user-button">Add User</button>
+        <button style="float:right;" type="submit" class="btn btn-primary add-user-button">Add User</button>
     </form>
 </div>
 </div>
