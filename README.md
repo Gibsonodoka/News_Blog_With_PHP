@@ -19,7 +19,7 @@ Blog/
 |   |   |-- admin-style.css
 |   |
 |   |-- images/
-|   |   |-- (image files)
+|   |   |-- 
 |   |
 |   |-- js/
 |       |-- (JavaScript files, if any)
