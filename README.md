@@ -37,3 +37,5 @@ Blog/
 |-- index.php
 |-- single_post.php
 |-- readme.md
+
+## directory tree
