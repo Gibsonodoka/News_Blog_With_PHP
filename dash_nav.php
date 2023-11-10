@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="left-sidebar">
-        <!-- Add your logo here -->
+        <!-- Add main logo here-->
         <div class="logo">
             <img src="/Blog/public/images/job.png" alt="Your Logo">
             <hr> <!-- Horizontal line -->
